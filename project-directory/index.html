@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Plant Match</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,59 +21,71 @@
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 
   <meta name="theme-color" content="#fafafa">
 
   <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- Material Icon CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <!-- My content here -->
   <header>
     <div class="top-frame">
-      <h5>Grow The Perfect Combination</h5>
+      <h5>Ready, Set, Plant</h5>
     </div>
-    <div class="continer-nav">
-      <div class="desktop-nav">
-        <button class="nav-toggle" aria-label="open  navigation">
-          <span class="hamburger"></span>
-        </button>
-        <a class="logo" href="#">
-          <img src="img/logo500.png" alt="plant matchmaker logo"></a>
-        <button class="nav-link"><a href="#">Sign up</a></button>
+  
+    
+    <nav class="topnav container">
+      <!-- Navigation links (hidden by default) -->
+      <div id="myLinks">
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
       </div>
+      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <!-- my code continuted -->
+    </nav>
+    <div class="logo-center">
+      <a href="#"><img class="logo" src="img/logo500.png" alt="plant match logo"></a>
     </div>
+   
   </header>
 
   <section class="hero">
     <h1>What do I plant with this?</h1>
-    <h5>Select a plant to discover its ideal growing companions</h5>
+    <h5>Select a plant to discover its ideal growing companions:</h5>
   </section>
 
   <main class="main container">
     <section class="plant">
-      <img src="" alt="">
+      <img src="img/tomato.jpg" alt="tomato plant">
       <h3>Tomatoes</h3>   
     </section>
     <section class="plant">
-      <img src="" alt="">
+      <img src="img/squash.jpg" alt="various fresh squash">
       <h3>Squash</h3>   
     </section>
     <section class="plant">
-      <img src="" alt="">
+      <img src="img/lettuce.jpg" alt="lettuce growing in a garden">
       <h3>Lettuce</h3>   
     </section>
     <section class="plant">
-      <img src="" alt="">
+      <img src="img/corn.jpg" alt="fresh corn growing on a plant">
       <h3>Corn</h3>   
     </section>
   </main>
 
   <footer>
-    <p>copyright 2022 Julie Morris</p>
+    <h5>copyright <span id="copyright-year">2022</span> Julie Morris</h5>
   </footer>
   
 
