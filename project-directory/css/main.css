@@ -87,6 +87,8 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+   /*global styles*/
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -103,73 +105,53 @@ body {
 
 .top-frame, footer {
   background: #F1DDDF;
-  margin-bottom: 20px;
-
+  
 }
 
-.nav {
-  display: flex;
-  justify-content: space-around;
-  margin: 50px;
-}
-
-
-* Style the navigation menu */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-}
-
-/* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
-  display: none;
-}
-
-/* Style navigation menu links */
-.topnav a {
+button {
+  display: block;
+  margin: 25px auto 50px; 
+  padding: .5rem 2.5rem;
+  background: #86B049;
+  width: max-content;
+  border-radius: 100px;
   color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  letter-spacing: .05rem;
+  border: none;  
 }
 
-/* Style the hamburger menu */
-.topnav a.icon {
-  background: black;
-  display: block;
+
+.button:hover,
+.button:focus {
+  opacity: .75; 
+}
+
+.brightness {
+  background-color: white;
+  display: inline-block;
+}
+
+.brightness img:hover {
+  opacity: .5;
+}
+
+.text-block {
   position: absolute;
-  right: 0;
-  top: 0;
-}
-
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Style the active link (or home/logo) */
-.active {
-  background-color: #04AA6D;
+  bottom: 22px;
+  left: 0px;
+  background-color: #476930;
   color: white;
-}
-
-.logo-center {
-  display: flex;
-  justify-content: center;
-}
-.logo {
-  width: 300px;
-  padding: 20px 0 40px
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 h5 {
   margin: 0;
-  padding: 15px 0;
+  padding: 16px 0;
   text-align: center;
-  color: rgb(94, 93, 93);
+  color: #706f6f;
   font-size: .875rem;
 
 }
@@ -184,8 +166,65 @@ h1 {
 h3 {
   margin: 0;
   text-transform: uppercase;
-  font-size: .875rem;
+  font-size: 1rem;
+  letter-spacing: .05rem;
 }
+
+/* mobile styles */
+
+/* Style the navigation menu */
+.topnav {
+  background-color: #86B049;
+  position: relative;
+  
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #C8B88A;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Add a background color on mouse-over */
+.topnav a:hover {
+  background-color: #86B049;
+  color: white;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #86B049;
+  color: white;
+}
+
+.logo-center {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 300px;
+  padding: 20px 0 40px
+}
+
 
 .main {
   display: flex;
@@ -197,20 +236,30 @@ h3 {
 
 .plant {
   margin: 10px;
+  position: relative;
   
 }
 
 .plant img {
-  width: 230px;
- 
-  
+  width: 230px;  
 }
 
 footer {
   margin-bottom: 0;
 }
 
+/* selects the button that picks at random */
 
+
+/* selects the button that starts the matchmaking from the beginning */
+.start-over {
+  color: #86B049;
+}
+
+.hide {
+  display: none;
+}
+   
 
 /* ==========================================================================
    Helper classes

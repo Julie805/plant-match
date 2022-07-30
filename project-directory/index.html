@@ -36,24 +36,26 @@
 <body>
   <!-- My content here -->
   <header>
-    <div class="top-frame">
-      <h5>Ready, Set, Plant</h5>
-    </div>
-  
     
-    <nav class="topnav container">
+  
+    <nav class="topnav">
+      <div class="top-frame">
+        <h5>Your Perfect Garden Awaits</h5>
+      </div>   
       <!-- Navigation links (hidden by default) -->
       <div id="myLinks">
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
+        <a href="#shop">Shop</a>
         <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <a href="javascript:void(0);" class="icon" onclick="hamburger()">
         <i class="fa fa-bars"></i>
       </a>
       <!-- my code continuted -->
     </nav>
+    
     <div class="logo-center">
       <a href="#"><img class="logo" src="img/logo500.png" alt="plant match logo"></a>
     </div>
@@ -61,27 +63,41 @@
   </header>
 
   <section class="hero">
-    <h1>What do I plant with this?</h1>
-    <h5>Select a plant to discover its ideal growing companions:</h5>
+    <h1 class="headline">What do I plant with this?</h1>
+    <h5 class="instructions">Select a plant to discover its ideal growing companions:</h5>
   </section>
 
-  <main class="main container">
-    <section class="plant">
-      <img src="img/tomato.jpg" alt="tomato plant">
-      <h3>Tomatoes</h3>   
-    </section>
-    <section class="plant">
-      <img src="img/squash.jpg" alt="various fresh squash">
-      <h3>Squash</h3>   
-    </section>
-    <section class="plant">
-      <img src="img/lettuce.jpg" alt="lettuce growing in a garden">
-      <h3>Lettuce</h3>   
-    </section>
-    <section class="plant">
-      <img src="img/corn.jpg" alt="fresh corn growing on a plant">
-      <h3>Corn</h3>   
-    </section>
+  <main>
+    <div class="main container">
+      <section class="plant brightness tomato">
+        <img src="img/tomato.jpg" alt="tomato plant">
+        <div class="text-block">
+          <h3>Tomatoes</h3>
+        </div>
+      </section>
+      <section class="plant brightness squash">
+        <img src="img/squash.jpg" alt="various fresh squash">
+        <div class="text-block">
+          <h3>Squash</h3>
+        </div>
+      </section>
+      <section class="plant brightness lettuce">
+        <img src="img/lettuce.jpg" alt="lettuce growing in a garden">
+        <div class="text-block">
+          <h3>Lettuce</h3>
+        </div>
+      </section>
+      <section class="plant brightness corn">
+        <img src="img/corn.jpg" alt="fresh corn growing on a plant">
+        <div class="text-block">
+          <h3>Corn</h3>
+        </div>
+      </section>
+    </div>
+    <div class="button">
+      <button class="random-match">Surprise Me!</button>
+      <button class="start-over hide">Start Over</button>
+    </div>
   </main>
 
   <footer>
