@@ -21,7 +21,7 @@
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main2.js" defer></script>
+ <script src="js/main.js" defer></script>
 
   <meta name="theme-color" content="#fafafa">
 
@@ -64,41 +64,20 @@
 
   <section class="hero">
     <h1 class="headline">What do I plant with this?</h1>
-    <h5 class="instructions">Select a plant to discover its ideal growing companions:</h5>
-    <p class="garden"></p>
+    <h5 class="subtext">Select a plant to discover its ideal growing companions:</h5>
   </section>
 
   <main>
-    <div class="main container">
-      <section class="plant brightness img-1">
-        <img src="img/tomato.jpg" alt="tomato plant">
-        <div class="text-block">
-          <h3>Tomatoes</h3>
-        </div>
-      </section>
-      <section class="plant brightness img-2">
-        <img src="img/squash.jpg" alt="various fresh squash">
-        <div class="text-block">
-          <h3>Squash</h3>
-        </div>
-      </section>
-      <section class="plant brightness img-3">
-        <img src="img/lettuce.jpg" alt="lettuce growing in a garden">
-        <div class="text-block">
-          <h3>Lettuce</h3>
-        </div>
-      </section>
-      <section class="plant brightness img-4">
-        <img src="img/corn.jpg" alt="fresh corn growing on a plant">
-        <div class="text-block">
-          <h3>Corn</h3>
-        </div>
-      </section>
-      <section class="test"> </section>
+    <div class="container">
+      <p class="circle" id="tomato">Tomato</p>
+      <p class="circle" id="squash">Squash</p>
+      <p class="circle" id="lettuce">Lettuce</p>
+      <p class="circle" id="corn">Corn</p>   
     </div>
+
     <div class="button">
       <button class="surprise">Surprise Me!</button>
-      <button class="start-over hide">Start Over</button>
+      <button class="new-match hide">Start Over</button>
     </div>
   </main>
 
