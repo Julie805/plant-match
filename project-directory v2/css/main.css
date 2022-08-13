@@ -102,38 +102,32 @@ body {
 .top-frame, footer {
   background: #F1DDDF;
   
+  
 }
-
-button {
-  display: block;
-  margin: 25px auto 50px; 
-  padding: .5rem 2.5rem;
+/* needed .64 vertical padding intead of .5 to match divs above. Why?? */
+.surprise,
+.new-match {
   background: #86B049;
-  width: max-content;
+  width: 250px;
   border-radius: 100px;
-  color: white;
+  border: none; 
   text-transform: uppercase;
+  text-align: center;
   font-size: 1.25rem;
   letter-spacing: .05rem;
-  border: none;  
+  color: white;
+  margin: 25px auto 50px; 
+  padding:.64rem 2.5rem;
+  display: block;
 }
 
 
-.button:hover,
-.button:focus {
-  opacity: .75; 
-}
 
-.brightness {
-  background-color: white;
-  display: inline-block;
+.surprise:hover,
+.new-match:hover {
+  background-color: #476930; 
+  cursor:pointer;
 }
-
-.brightness img:hover {
-  opacity: .5;
-}
-
- */
 
 h5 {
   margin: 0;
@@ -141,7 +135,6 @@ h5 {
   text-align: center;
   color: #706f6f;
   font-size: .875rem;
-
 }
 
 h1 {
@@ -149,8 +142,14 @@ h1 {
   text-align: center;
   margin: 0;
   font-family: 'Baskervville', serif;  
+  text-align: center;
 }
 
+h2 {
+  color: #706f6f;
+  font-size: 1.125rem;
+  text-align: center;
+}
 
 /* mobile styles */
 
@@ -211,21 +210,29 @@ h1 {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  align-items: center;
   margin: auto;
 }
 
 .circle {
-  text-transform: uppercase;
-  margin: 25px auto 50px; 
-  padding: .5rem 2.5rem;
   background: #86B049;
-  width: max-content;
+  width: 250px;
   border-radius: 100px;
-  color: white;
+  border: none; 
+  text-transform: uppercase;
+  text-align: center;
   font-size: 1.25rem;
   letter-spacing: .05rem;
-  border: none; 
+  color: white;
+  margin: 25px; 
+  padding: .5rem 2.5rem;
 }
+
+.circle:hover {
+  background-color: #476930; 
+  cursor:pointer;
+}
+
 
 
 footer {
