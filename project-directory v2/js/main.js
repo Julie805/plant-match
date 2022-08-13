@@ -13,7 +13,7 @@ const headline = document.querySelector(".headline");
 const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
 const startOverButton = document.querySelector(".new-match");
-//The "parent plants" to choose from
+//The "parent plants" to choose from on the homepage
 const tomato = document.querySelector("#tomato");
 const squash = document.querySelector("#squash");
 const lettuce = document.querySelector("#lettuce");
@@ -25,6 +25,7 @@ const lettuceMatch = ["onions", "radishes", "beets", "carrots"];
 const cornMatch = ["squash", "beans", "peas", "cucumbers"];
 //Array used by "surprise" me button to pick parent plant
 const firstPlants = ["tomato", "squash", "lettuce", "corn"];
+
 
 
 //Changes the main text to reflect user's plant choices  
@@ -44,7 +45,7 @@ function renderMatch(parentPlant) {
     startOver();
 };
 
-//Event Listeners for when user chooses a plant:
+//Event Listeners for when user chooses a plant. 
 
 tomato.addEventListener("click", function() {
   choosePlant("tomatoes");
@@ -68,14 +69,20 @@ corn.addEventListener("click", function() {
 });
 
 
-//"Surprise me" button that picks a random plant to start - this needs to be refactored. 
+//"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround?)
 surpriseButton.addEventListener("click", function () {
-  const keys = Object.keys(plants);
-  const randomPlant = keys[Math.floor(Math.random()*keys.length)];
+  const randomPlant = firstPlants[Math.floor(Math.random()*firstPlants.length)];
   headline.innerText = `You have chosen to grow ${randomPlant}`;
   subtext.innerText = "Here are the best companion plants to add to your garden:";
-  myPlants.push(randomPlant);
-  console.log(randomPlant);
+  if (randomPlant === "tomato") {
+    renderMatch(tomatoMatch)
+  } else if (randomPlant === "squash") {
+    renderMatch(squashMatch)
+  } else if (randomPlant === "lettuce") {
+    renderMatch(lettuceMatch)
+  } else {
+    renderMatch(cornMatch)
+  } 
 });
 
 //Updates button at the bottom of the page
@@ -93,7 +100,9 @@ startOverButton.addEventListener("click", function() {
     <p class="circle" id="squash">Squash</p>
     <p class="circle" id="lettuce">Lettuce</p>
     <p class="circle" id="corn">Corn</p> ";
-  `  
+  ` 
+  surpriseButton.classList.remove("hide");
+  startOverButton.classList.add("hide"); 
 });
 
 
