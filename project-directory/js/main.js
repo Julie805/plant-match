@@ -16,7 +16,6 @@
 //7. Have not built out pages on hamburger menu. Might delete.
 
 const plant = document.querySelector(".plant");
-
 const container = document.querySelector(".container");
 
 const headline = document.querySelector(".headline");
