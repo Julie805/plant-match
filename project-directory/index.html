@@ -14,14 +14,13 @@
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main2.js" defer></script>
+ <script src="js/main.js" defer></script>
 
   <meta name="theme-color" content="#fafafa">
 
@@ -34,71 +33,43 @@
 </head>
 
 <body>
-  <!-- My content here -->
   <header>
-    
-  
     <nav class="topnav">
       <div class="top-frame">
         <h5>Your Perfect Garden Awaits</h5>
       </div>   
-      <!-- Navigation links (hidden by default) -->
+      <!-- Navigation links (hidden by default). Links currently not built out. -->
       <div id="myLinks">
         <a href="#shop">Shop</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        
+        <a href="#contact">Contact</a>      
       </div>
       <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
       <a href="javascript:void(0);" class="icon" onclick="hamburger()">
         <i class="fa fa-bars"></i>
       </a>
-      <!-- my code continuted -->
-    </nav>
-    
+    </nav>    
     <div class="logo-center">
       <a href="#"><img class="logo" src="img/logo500.png" alt="plant match logo"></a>
-    </div>
-   
+    </div>   
   </header>
 
   <section class="hero">
-    <h1 class="headline">What do I plant with this?</h1>
-    <h5 class="instructions">Select a plant to discover its ideal growing companions:</h5>
-    <p class="garden"></p>
+    <h1 class="headline">What do I plant with this?</h1>  
+    <h2 class="subtext">Select a plant to discover its ideal growing companions:</h2>
   </section>
 
   <main>
-    <div class="main container">
-      <section class="plant brightness img-1">
-        <img src="img/tomato.jpg" alt="tomato plant">
-        <div class="text-block">
-          <h3>Tomatoes</h3>
-        </div>
-      </section>
-      <section class="plant brightness img-2">
-        <img src="img/squash.jpg" alt="various fresh squash">
-        <div class="text-block">
-          <h3>Squash</h3>
-        </div>
-      </section>
-      <section class="plant brightness img-3">
-        <img src="img/lettuce.jpg" alt="lettuce growing in a garden">
-        <div class="text-block">
-          <h3>Lettuce</h3>
-        </div>
-      </section>
-      <section class="plant brightness img-4">
-        <img src="img/corn.jpg" alt="fresh corn growing on a plant">
-        <div class="text-block">
-          <h3>Corn</h3>
-        </div>
-      </section>
-      <section class="test"> </section>
+    <div class="container">
+      <p class="plant hover-style" id="tomato">Tomato</p>
+      <p class="plant hover-style" id="squash">Squash</p>
+      <p class="plant hover-style" id="lettuce">Lettuce</p>
+      <p class="plant hover-style" id="corn">Corn</p>   
     </div>
+
     <div class="button">
       <button class="surprise">Surprise Me!</button>
-      <button class="start-over hide">Start Over</button>
+      <button class="new-match hide">Start Over</button>
     </div>
   </main>
 

@@ -99,52 +99,34 @@ body {
   margin: 0;
 }
 
-.container {
-  margin: 0 10px;
-}
-
 .top-frame, footer {
   background: #F1DDDF;
   
+  
 }
-
-button {
-  display: block;
-  margin: 25px auto 50px; 
-  padding: .5rem 2.5rem;
-  background: #86B049;
-  width: max-content;
+/* needed .63 vertical padding intead of .5 to match the surprise and new-match buttont to the divs above. Why?? */
+.surprise,
+.new-match {
+  background: white;
+  width: 250px;
   border-radius: 100px;
-  color: white;
+  border: 2px #86B049 solid; 
   text-transform: uppercase;
+  text-align: center;
   font-size: 1.25rem;
   letter-spacing: .05rem;
-  border: none;  
+  color: #86B049;
+  margin: 25px auto 50px; 
+  padding:.62rem 2.5rem;
+  display: block;
 }
 
 
-.button:hover,
-.button:focus {
-  opacity: .75; 
-}
 
-.brightness {
-  background-color: white;
-  display: inline-block;
-}
-
-.brightness img:hover {
-  opacity: .5;
-}
-
-.text-block {
-  position: absolute;
-  bottom: 22px;
-  left: 0px;
-  background-color: #476930;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
+.surprise:hover,
+.new-match:hover {
+  background-color: #476930; 
+  cursor:pointer;
 }
 
 h5 {
@@ -153,7 +135,6 @@ h5 {
   text-align: center;
   color: #706f6f;
   font-size: .875rem;
-
 }
 
 h1 {
@@ -161,14 +142,22 @@ h1 {
   text-align: center;
   margin: 0;
   font-family: 'Baskervville', serif;  
+  text-align: center;
 }
 
-h3 {
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: .05rem;
+h2 {
+  color: #706f6f;
+  font-size: 1.125rem;
+  text-align: center;
+  margin-bottom: 10px;
 }
+
+.highlight-word {
+  color: #86B049;
+  text-transform: uppercase;
+}
+
+
 
 /* mobile styles */
 
@@ -215,6 +204,10 @@ h3 {
   color: white;
 }
 
+.hero {
+  padding: 0 30px;
+}
+
 .logo-center {
   display: flex;
   justify-content: center;
@@ -225,30 +218,38 @@ h3 {
   padding: 20px 0 40px
 }
 
-
-.main {
+.container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   margin: auto;
-  
+  padding: 50px 50px 0;
 }
 
 .plant {
-  margin: 10px;
-  position: relative;
-  
+  background-color: #86B049;
+  width: 250px;
+  border-radius: 100px;
+  border: none; 
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.25rem;
+  letter-spacing: .05rem;
+  color: white;
+  margin: 25px; 
+  padding: .5rem 2.5rem;
 }
 
-.plant img {
-  width: 230px;  
+.hover-style:hover {
+  background-color: #476930; 
+  cursor:pointer;
 }
+
 
 footer {
   margin-bottom: 0;
 }
-
-/* selects the button that picks at random */
 
 
 /* selects the button that starts the matchmaking from the beginning */
@@ -344,13 +345,17 @@ footer {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Media Queries 
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (min-width: 780px) {
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 @media print,
