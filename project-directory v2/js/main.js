@@ -6,13 +6,24 @@
 // -Button updates to say "get my garden"
 // - After get my garden button is clicked, screen updates to display thumbnails of selections, a message that these are the chosen match, and an updated button to "Start Over." 
 
-const circle = document.querySelector(".circle");
+//TROUBLESHOOTING TO-DO's:
+//1. After one match is made, and startOverButton is pressed, the layout updates, but none of the plant event listeners are active for a second run. But the "surprise-me" button IS active and can continue functioning. WHY?
+//2. Layout issues with buttons moving position (to the left) after click events.
+//3. Not able to get items in arrays (like tomatoMatch) to change color in functions. Have tried adding a classList from CSS as well as adding variable.style.background = color
+//4. How would this work with images instead of text only?
+//5. How would this work on a larger scale?
+//6. fix floating/jumpy footer. have not done much with media queries. 
+//7. Have not built out pages on hamburger menu. Might delete.
+
+const plant = document.querySelector(".plant");
+
 const container = document.querySelector(".container");
 
 const headline = document.querySelector(".headline");
 const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
 const startOverButton = document.querySelector(".new-match");
+
 //The "parent plants" to choose from on the homepage
 const tomato = document.querySelector("#tomato");
 const squash = document.querySelector("#squash");
@@ -24,14 +35,15 @@ const squashMatch = ["corn", "beans", "radishes", "peas"];
 const lettuceMatch = ["onions", "radishes", "beets", "carrots"];
 const cornMatch = ["squash", "beans", "peas", "cucumbers"];
 //Array used by "surprise" me button to pick parent plant
-const firstPlants = ["tomato", "squash", "lettuce", "corn"];
+const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
 
+//tomatoMatch.style.background = "#C8B88A";
 
 
 //Changes the main text to reflect user's plant choices  
 function choosePlant(variety) {
-  headline.innerText = `You have chosen to grow ${variety}!`
-  subtext.innerText = "Here are the best companion plants to add to your garden:";
+  headline.innerHTML = `Matches for <span class="highlight-word">${variety}</span>`
+  subtext.innerText = `These are the best companion plants for ${variety} to add to your garden:`;
 };
 
 //Renders the plant matches 
@@ -39,9 +51,10 @@ function renderMatch(parentPlant) {
     container.innerHTML= "";
     let plantDOM = "";
     for (let i = 0; i < parentPlant.length; i++) {
-      plantDOM += `<p class="circle">${parentPlant[i]}<p>`
+      plantDOM += `<p class="plant">${parentPlant[i]}<p>`
     }
     container.innerHTML= plantDOM;
+    plant.classList.remove("hover-style");
     startOver();
 };
 
@@ -72,8 +85,9 @@ corn.addEventListener("click", function() {
 //"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround?)
 surpriseButton.addEventListener("click", function () {
   const randomPlant = firstPlants[Math.floor(Math.random()*firstPlants.length)];
-  headline.innerText = `You have chosen to grow ${randomPlant}`;
-  subtext.innerText = "Here are the best companion plants to add to your garden:";
+  headline.innerHTML = `Matches for <span class="highlight-word">${randomPlant}</span>`;
+  subtext.innerText = `These are the best companion plants for ${randomPlant} to add to your garden:`;
+  plant.style.background = "#C8B88A"; //not working!
   if (randomPlant === "tomato") {
     renderMatch(tomatoMatch)
   } else if (randomPlant === "squash") {
@@ -96,16 +110,14 @@ startOverButton.addEventListener("click", function() {
   headline.innerText = "What do I plant with this?";
   subtext.innerText = "Select a plant to reveal its ideal growing companions:"
   container.innerHTML = `
-    <p class="circle" id="tomato">Tomato</p>
-    <p class="circle" id="squash">Squash</p>
-    <p class="circle" id="lettuce">Lettuce</p>
-    <p class="circle" id="corn">Corn</p> ";
+    <p class="plant hover-style" id="tomato">Tomato</p>
+    <p class="plant hover-style" id="squash">Squash</p>
+    <p class="plant hover-style" id="lettuce">Lettuce</p>
+    <p class="plant hover-style" id="corn">Corn</p> 
   ` 
   surpriseButton.classList.remove("hide");
   startOverButton.classList.add("hide"); 
 });
-
-
 
 //updates the copyright year in the footer
 const copyrightYear = document.querySelector('#copyright-year');

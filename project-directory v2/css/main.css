@@ -104,20 +104,20 @@ body {
   
   
 }
-/* needed .64 vertical padding intead of .5 to match divs above. Why?? */
+/* needed .63 vertical padding intead of .5 to match the surprise and new-match buttont to the divs above. Why?? */
 .surprise,
 .new-match {
-  background: #86B049;
+  background: white;
   width: 250px;
   border-radius: 100px;
-  border: none; 
+  border: 2px #86B049 solid; 
   text-transform: uppercase;
   text-align: center;
   font-size: 1.25rem;
   letter-spacing: .05rem;
-  color: white;
+  color: #86B049;
   margin: 25px auto 50px; 
-  padding:.64rem 2.5rem;
+  padding:.62rem 2.5rem;
   display: block;
 }
 
@@ -149,7 +149,15 @@ h2 {
   color: #706f6f;
   font-size: 1.125rem;
   text-align: center;
+  margin-bottom: 10px;
 }
+
+.highlight-word {
+  color: #86B049;
+  text-transform: uppercase;
+}
+
+
 
 /* mobile styles */
 
@@ -196,6 +204,10 @@ h2 {
   color: white;
 }
 
+.hero {
+  padding: 0 30px;
+}
+
 .logo-center {
   display: flex;
   justify-content: center;
@@ -212,10 +224,11 @@ h2 {
   justify-content: space-around;
   align-items: center;
   margin: auto;
+  padding: 50px 50px 0;
 }
 
-.circle {
-  background: #86B049;
+.plant {
+  background-color: #86B049;
   width: 250px;
   border-radius: 100px;
   border: none; 
@@ -228,18 +241,15 @@ h2 {
   padding: .5rem 2.5rem;
 }
 
-.circle:hover {
+.hover-style:hover {
   background-color: #476930; 
   cursor:pointer;
 }
 
 
-
 footer {
   margin-bottom: 0;
 }
-
-/* selects the button that picks at random */
 
 
 /* selects the button that starts the matchmaking from the beginning */
@@ -335,13 +345,17 @@ footer {
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Media Queries 
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (min-width: 780px) {
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 @media print,
