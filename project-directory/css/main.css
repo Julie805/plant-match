@@ -87,7 +87,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-   /*global styles*/
+   /* ===============global styles ===============*/
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -100,10 +100,9 @@ body {
 }
 
 .top-frame, footer {
-  background: #F1DDDF;
-  
-  
+  background: #F1DDDF;  
 }
+
 /* needed .63 vertical padding intead of .5 to match the surprise and new-match buttont to the divs above. Why?? */
 .surprise,
 .new-match {
@@ -121,8 +120,6 @@ body {
   display: block;
 }
 
-
-
 .surprise:hover,
 .new-match:hover {
   background-color: #476930; 
@@ -130,24 +127,26 @@ body {
 }
 
 h5 {
+  font-size: .875rem;
+  color: #706f6f;
+  text-align: center;
   margin: 0;
   padding: 16px 0;
-  text-align: center;
-  color: #706f6f;
-  font-size: .875rem;
+  
+  
 }
 
 h1 {
+  font-family: 'Baskervville', serif;  
   font-size: 2.25rem;
   text-align: center;
-  margin: 0;
-  font-family: 'Baskervville', serif;  
   text-align: center;
+  margin: 0;  
 }
 
 h2 {
-  color: #706f6f;
   font-size: 1.125rem;
+  color: #706f6f;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -159,13 +158,12 @@ h2 {
 
 
 
-/* mobile styles */
+/* =============== mobile styles =============== */
 
 /* Style the navigation menu */
 .topnav {
   background-color: #86B049;
-  position: relative;
-  
+  position: relative;  
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
@@ -198,7 +196,7 @@ h2 {
   color: white;
 }
 
-/* Style the active link (or home/logo) */
+/* Style the active link */
 .active {
   background-color: #86B049;
   color: white;
@@ -251,12 +249,12 @@ footer {
   margin-bottom: 0;
 }
 
-
 /* selects the button that starts the matchmaking from the beginning */
 .start-over {
   color: #86B049;
 }
 
+/* hides elements */
 .hide {
   display: none;
 }

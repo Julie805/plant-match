@@ -1,28 +1,33 @@
-//Psuedo-code:
-// -Visitor may choose one plant to start, or click a "Surprise me!" button that chooses a plant at random. DONE
-// -Picked plant (by user or random) returns 4 new plants that are a match.
-// -Hero area text updates to say: "You have chosen (plant)! Select as many companion plants as you'd like to add them to your garden:"
-// - Picked plants have a heart that is filled in when clicked.
-// -Button updates to say "get my garden"
-// - After get my garden button is clicked, screen updates to display thumbnails of selections, a message that these are the chosen match, and an updated button to "Start Over." 
+//PROJECT OBJECTIVE: 
+//To simplify successful garden planting by finding companion plants.
+
+//FUNCTIONAL OUTLINE:
+// -Visitor may choose one plant to start, or click a "Surprise me!" button that chooses a plant at random. 
+// -The picked plant (by user or random) returns 4 new plants that are good companion plants (a match). Hero area text also updates to reveal the plant user has chosen.
+// -User may find additional plant matches using the "start-over" button, which refreshes the screen back to its first stage.
 
 //TROUBLESHOOTING TO-DO's:
-//1. After one match is made, and startOverButton is pressed, the layout updates, but none of the plant event listeners are active for a second run. But the "surprise-me" button IS active and can continue functioning. WHY?
+//1. After one match is made, and startOverButton is pressed, the layout updates, but none of the plant event listeners are active for a second run. But... the "surprise-me" button IS active and can continue functioning. WHY???
 //2. Layout issues with buttons moving position (to the left) after click events.
-//3. Not able to get items in arrays (like tomatoMatch) to change color in functions. Have tried adding a classList from CSS as well as adding variable.style.background = color
+//3. Not able to get items in arrays (like tomatoMatch) to change color in functions. Have tried adding a classList from CSS as well as adding variable.style.background = color (AND... is this color change enough to cue the user that the plants have changed? Right now it is difficult to notice.)
 //4. How would this work with images instead of text only?
 //5. How would this work on a larger scale?
-//6. fix floating/jumpy footer. have not done much with media queries. 
+//6. fix floating/jumpy footer. have not done much with media queries right now. 
 //7. Have not built out pages on hamburger menu. Might delete.
 
+//FUTURE WISH LIST:
+//1. Instead of buttons, would much prefer photos with labels! Was not able to get this to function in JS in previous versions.
+//2. Ability to "heart" and save plants to a "my garden" seciton
+//3. More plants :)
+
+
+//Main selectors from HTML
 const plant = document.querySelector(".plant");
 const container = document.querySelector(".container");
-
 const headline = document.querySelector(".headline");
 const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
 const startOverButton = document.querySelector(".new-match");
-
 //The "parent plants" to choose from on the homepage
 const tomato = document.querySelector("#tomato");
 const squash = document.querySelector("#squash");
@@ -35,6 +40,7 @@ const lettuceMatch = ["onions", "radishes", "beets", "carrots"];
 const cornMatch = ["squash", "beans", "peas", "cucumbers"];
 //Array used by "surprise" me button to pick parent plant
 const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
+
 
 //Changes the main text to reflect user's plant choices  
 function choosePlant(variety) {
@@ -54,8 +60,7 @@ function renderMatch(parentPlant) {
     startOver();
 };
 
-//Event Listeners for when user chooses a plant. 
-
+//Event Listeners for when user chooses a plant 
 tomato.addEventListener("click", function() {
   choosePlant("tomatoes");
   renderMatch(tomatoMatch); 
@@ -78,7 +83,7 @@ corn.addEventListener("click", function() {
 });
 
 
-//"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround?)
+//"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround? Would get very long with more plants.)
 surpriseButton.addEventListener("click", function () {
   const randomPlant = firstPlants[Math.floor(Math.random()*firstPlants.length)];
   headline.innerHTML = `Matches for <span class="highlight-word">${randomPlant}</span>`;
@@ -101,7 +106,7 @@ const startOver = function () {
   startOverButton.classList.remove("hide");
 };
 
-//Resets the page to the starting point -- currently loses the ability to play again ;(
+//Resets the page to the starting point (currently loses the ability to play again unfortunately)
 startOverButton.addEventListener("click", function() {
   headline.innerText = "What do I plant with this?";
   subtext.innerText = "Select a plant to reveal its ideal growing companions:"
@@ -119,8 +124,7 @@ startOverButton.addEventListener("click", function() {
 const copyrightYear = document.querySelector('#copyright-year');
 copyrightYear.innerText = new Date().getFullYear();
 
-
-//Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon //
+//Toggle between showing and hiding the navigation menu links when user clicks on the hamburger menu icon
 function hamburger() {
     const links = document.getElementById("myLinks");
     if (links.style.display === "block") {
