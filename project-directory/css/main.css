@@ -104,8 +104,7 @@ body {
 }
 
 /* needed .63 vertical padding intead of .5 to match the surprise and new-match buttont to the divs above. Why?? */
-.surprise,
-.new-match {
+.button {
   background: white;
   width: 250px;
   border-radius: 100px;
@@ -120,10 +119,16 @@ body {
   display: block;
 }
 
-.surprise:hover,
-.new-match:hover {
+.button:hover, .button:active {
   background-color: #476930; 
   cursor:pointer;
+}
+/* hides the match modal until called */
+#match-container {
+  display: none;
+  width: 50%;
+  height: 200px;
+  background-color: whitesmoke ; 
 }
 
 h5 {

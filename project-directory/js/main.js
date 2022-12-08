@@ -25,7 +25,6 @@ import {plantData} from './data.js'
 
 //Main selectors from HTML
 const plant = document.querySelector(".plant");
-const container = document.querySelector(".container");
 const headline = document.querySelector(".headline");
 const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
@@ -40,6 +39,31 @@ const cornMatch = ["squash", "beans", "peas", "cucumbers"];
 const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
 
 //New code starts here
+const matchArray = []
+
+document.addEventListener('click', function(event) {
+  if (event.target.dataset.id) {
+    getPlantMatch(event.target.dataset.id)
+
+  }
+})
+
+function getPlantMatch(plantId) {
+  matchArray.push(plantData.filter(function(match){
+    return plantData.id === plantId
+  }))
+  renderMatches()
+}
+
+function getMatchHtml() {
+  let matchHtml = `<h3>These are the best companion plants for VARIETY to add to your garden:`
+  matchArray.forEach(function(match) {
+    matchHtml += `<p class="plant">${match}<p>`
+  })
+  return matchHtml
+}
+
+//Renders plant names
 function getPlantHtml() {
   let plantHtml = ''
   plantData.forEach(function(plant) {
@@ -53,8 +77,14 @@ function getPlantHtml() {
 function renderPlants() {
   document.querySelector('#plant-container').innerHTML = getPlantHtml()
 }
-
 renderPlants()
+
+function renderMatches() {
+  document.querySelector('#match-container').style.display ='block'
+  document.querySelector('#match-container').innerHTML = getMatchHtml()
+  
+}
+
 
 //New code ends here
 
