@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Plant Match</title>
-  <meta name="description" content="">
+  <meta name="Plant Match" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:title" content="">
@@ -15,21 +15,19 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
 
+   <!-- Google fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+   <!-- Material Icon CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <!-- CSS styles -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
- <script src="js/main.js" defer></script>
-
-  <meta name="theme-color" content="#fafafa">
-
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   
-  <!-- Material Icon CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="js/main.js" type="module"></script>
+
 </head>
 
 <body>
@@ -60,11 +58,8 @@
   </section>
 
   <main>
-    <div class="container">
-      <p class="plant hover-style" id="tomato">Tomato</p>
-      <p class="plant hover-style" id="squash">Squash</p>
-      <p class="plant hover-style" id="lettuce">Lettuce</p>
-      <p class="plant hover-style" id="corn">Corn</p>   
+    <div id="plant-container">
+      <!-- plants rendered here -->  
     </div>
 
     <div class="button">

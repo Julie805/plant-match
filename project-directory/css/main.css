@@ -216,7 +216,7 @@ h2 {
   padding: 20px 0 40px
 }
 
-.container {
+#plant-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;

@@ -20,6 +20,8 @@
 //2. Ability to "heart" and save plants to a "my garden" seciton
 //3. More plants :)
 
+import {plantData} from './data.js'
+
 
 //Main selectors from HTML
 const plant = document.querySelector(".plant");
@@ -28,18 +30,33 @@ const headline = document.querySelector(".headline");
 const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
 const startOverButton = document.querySelector(".new-match");
-//The "parent plants" to choose from on the homepage
-const tomato = document.querySelector("#tomato");
-const squash = document.querySelector("#squash");
-const lettuce = document.querySelector("#lettuce");
-const corn = document.querySelector("#corn");
-//The individual arrays of companion plants
+
+//The individual arrays of companion plants moved to data
 const tomatoMatch = ["carrot", "basil", "onion", "celery"];
 const squashMatch = ["corn", "beans", "radishes", "peas"];
 const lettuceMatch = ["onions", "radishes", "beets", "carrots"];
 const cornMatch = ["squash", "beans", "peas", "cucumbers"];
 //Array used by "surprise" me button to pick parent plant
 const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
+
+//New code starts here
+function getPlantHtml() {
+  let plantHtml = ''
+  plantData.forEach(function(plant) {
+    plantHtml += `
+      <p class="plant hover-style" data-id="${plant.id}">${plant.name}</p>  
+    `
+  })
+  return plantHtml
+}
+
+function renderPlants() {
+  document.querySelector('#plant-container').innerHTML = getPlantHtml()
+}
+
+renderPlants()
+
+//New code ends here
 
 
 //Changes the main text to reflect user's plant choices  
