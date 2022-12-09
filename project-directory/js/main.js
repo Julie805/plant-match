@@ -22,7 +22,6 @@
 
 import {plantData} from './data.js'
 
-
 //Main selectors from HTML
 const plant = document.querySelector(".plant");
 const headline = document.querySelector(".headline");
@@ -30,38 +29,45 @@ const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
 const startOverButton = document.querySelector(".new-match");
 
-//The individual arrays of companion plants moved to data
-const tomatoMatch = ["carrot", "basil", "onion", "celery"];
-const squashMatch = ["corn", "beans", "radishes", "peas"];
-const lettuceMatch = ["onions", "radishes", "beets", "carrots"];
-const cornMatch = ["squash", "beans", "peas", "cucumbers"];
 //Array used by "surprise" me button to pick parent plant
-const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
+//const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
 
 //New code starts here
 const matchArray = []
 
 document.addEventListener('click', function(event) {
   if (event.target.dataset.id) {
-    getPlantMatch(event.target.dataset.id)
-
+    getPlantMatches(event.target.dataset.id)
   }
 })
 
-function getPlantMatch(plantId) {
+//rednder matches currently does not render any matches, just the headline
+function getPlantMatches(plantId) {
+
   matchArray.push(plantData.filter(function(match){
-    return plantData.id === plantId
-  }))
+    return match.id == plantId  
+  })[0])
+  
   renderMatches()
 }
 
+
+
+
+
+
 function getMatchHtml() {
-  let matchHtml = `<h3>These are the best companion plants for VARIETY to add to your garden:`
+  let matchHtml = `<h3>These are the best companion plants for VARIETY to add to your garden:</h3>`
   matchArray.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
   })
   return matchHtml
+  
 }
+
+
+
+
 
 //Renders plant names
 function getPlantHtml() {
@@ -107,45 +113,24 @@ function renderMatch(parentPlant) {
     startOver();
 };
 
-//Event Listeners for when user chooses a plant 
-tomato.addEventListener("click", function() {
-  choosePlant("tomatoes");
-  renderMatch(tomatoMatch); 
-});
-
-squash.addEventListener("click", function() {
-  choosePlant("squash");
-  renderMatch(squashMatch);  
-});
-
-lettuce.addEventListener("click", function() {
-  choosePlant("lettuce");
-  renderMatch(lettuceMatch);  
-});
-
-corn.addEventListener("click", function() {
-  choosePlant("corn");
-  renderMatch(cornMatch);  
-  console.log(test);
-});
 
 
 //"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround? Would get very long with more plants.)
-surpriseButton.addEventListener("click", function () {
-  const randomPlant = firstPlants[Math.floor(Math.random()*firstPlants.length)];
-  headline.innerHTML = `Matches for <span class="highlight-word">${randomPlant}</span>`;
-  subtext.innerText = `These are the best companion plants for ${randomPlant} to add to your garden:`;
-  plant.style.background = "#C8B88A"; //not working!
-  if (randomPlant === "tomato") {
-    renderMatch(tomatoMatch)
-  } else if (randomPlant === "squash") {
-    renderMatch(squashMatch)
-  } else if (randomPlant === "lettuce") {
-    renderMatch(lettuceMatch)
-  } else {
-    renderMatch(cornMatch)
-  } 
-});
+// surpriseButton.addEventListener("click", function () {
+//   const randomPlant = firstPlants[Math.floor(Math.random()*firstPlants.length)];
+//   headline.innerHTML = `Matches for <span class="highlight-word">${randomPlant}</span>`;
+//   subtext.innerText = `These are the best companion plants for ${randomPlant} to add to your garden:`;
+//   plant.style.background = "#C8B88A"; //not working!
+//   if (randomPlant === "tomato") {
+//     renderMatch(tomatoMatch)
+//   } else if (randomPlant === "squash") {
+//     renderMatch(squashMatch)
+//   } else if (randomPlant === "lettuce") {
+//     renderMatch(lettuceMatch)
+//   } else {
+//     renderMatch(cornMatch)
+//   } 
+// });
 
 //Updates button at the bottom of the page
 const startOver = function () {
@@ -154,18 +139,18 @@ const startOver = function () {
 };
 
 //Resets the page to the starting point (currently loses the ability to play again unfortunately)
-startOverButton.addEventListener("click", function() {
-  headline.innerText = "What do I plant with this?";
-  subtext.innerText = "Select a plant to reveal its ideal growing companions:"
-  container.innerHTML = `
-    <p class="plant hover-style" id="tomato">Tomato</p>
-    <p class="plant hover-style" id="squash">Squash</p>
-    <p class="plant hover-style" id="lettuce">Lettuce</p>
-    <p class="plant hover-style" id="corn">Corn</p> 
-  ` 
-  surpriseButton.classList.remove("hide");
-  startOverButton.classList.add("hide"); 
-});
+// startOverButton.addEventListener("click", function() {
+//   headline.innerText = "What do I plant with this?";
+//   subtext.innerText = "Select a plant to reveal its ideal growing companions:"
+//   container.innerHTML = `
+//     <p class="plant hover-style" id="tomato">Tomato</p>
+//     <p class="plant hover-style" id="squash">Squash</p>
+//     <p class="plant hover-style" id="lettuce">Lettuce</p>
+//     <p class="plant hover-style" id="corn">Corn</p> 
+//   ` 
+//   surpriseButton.classList.remove("hide");
+//   startOverButton.classList.add("hide"); 
+// });
 
 //updates the copyright year in the footer
 const copyrightYear = document.querySelector('#copyright-year');

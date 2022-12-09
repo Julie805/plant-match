@@ -126,9 +126,18 @@ body {
 /* hides the match modal until called */
 #match-container {
   display: none;
-  width: 50%;
-  height: 200px;
-  background-color: whitesmoke ; 
+  width: 70%;
+  height: 500px;
+  background-color: white ; 
+  filter: drop-shadow(5px 5px 255px rgba(0, 0, 0, 0.5));
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 6px;
+  padding: 25px;
 }
 
 h5 {
