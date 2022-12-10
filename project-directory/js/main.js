@@ -44,21 +44,22 @@ document.addEventListener('click', function(event) {
 //rednder matches currently does not render any matches, just the headline
 function getPlantMatches(plantId) {
 
+
   matchArray.push(plantData.filter(function(match){
     return match.id == plantId  
   })[0])
+  
+
   
   renderMatches()
 }
 
 
-
-
-
-
 function getMatchHtml() {
-  let matchHtml = `<h3>These are the best companion plants for VARIETY to add to your garden:</h3>`
-  matchArray.forEach(function(match) {
+  let matchHtml = `
+  <h2>♥ Plant match found!<h2>
+  <h3>These are the best companion plants for VARIETY to add to your garden:</h3>`
+ matchArray.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
   })
   return matchHtml
