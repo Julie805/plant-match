@@ -48,10 +48,9 @@ function getPlantMatches(plantId) {
   matchArray.push(plantData.filter(function(match){
     return match.id == plantId  
   })[0])
-  
-
-  
   renderMatches()
+  //below returns the right array!!! Need to rename matchArray, as it is the whole object
+  console.log(matchArray[0].matches)
 }
 
 
@@ -59,7 +58,7 @@ function getMatchHtml() {
   let matchHtml = `
   <h2>♥ Plant match found!<h2>
   <h3>These are the best companion plants for VARIETY to add to your garden:</h3>`
- matchArray.forEach(function(match) {
+  matchArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
   })
   return matchHtml

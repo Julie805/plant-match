@@ -234,7 +234,7 @@ h3 {
   justify-content: space-around;
   align-items: center;
   margin: auto;
-  padding: 50px 50px 0;
+  padding: 50px;
 }
 
 .plant {
@@ -247,7 +247,7 @@ h3 {
   font-size: 1.25rem;
   letter-spacing: .05rem;
   color: white;
-  margin: auto; 
+  margin: 0 auto 20px; 
   padding: .5rem 2.5rem;
 }
 
