@@ -115,22 +115,6 @@ body {
   background-color: #476930; 
   cursor:pointer;
 }
-/* hides the match modal until called */
-#match-container {
-  display: none;
-  width: 70%;
-  height: 500px;
-  background-color: white ; 
-  filter: drop-shadow(5px 5px 255px rgba(0, 0, 0, 0.5));
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  border-radius: 6px;
-  padding: 25px;
-}
 
 h5 {
   font-size: .875rem;
@@ -166,8 +150,8 @@ h3 {
   font-size: 1.75rem;
   text-align: center;
   margin-bottom: 20px; 
-
 }
+
 
 
 /* =============== mobile styles =============== */
@@ -228,13 +212,14 @@ h3 {
   padding: 20px 0 40px
 }
 
+
 #plant-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   margin: auto;
-  padding: 50px;
+  padding: 50px 50px;
 }
 
 .plant {
@@ -253,6 +238,36 @@ h3 {
 
 .hover-style:hover {
   background-color: #476930; 
+  cursor:pointer;
+}
+
+/* match modal hidden until called */
+#match-container {
+  display: none;
+  width: 70%;
+  height: 90%;
+  background-color: white ; 
+  filter: drop-shadow(5px 5px 255px rgba(0, 0, 0, 0.5));
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 6px;
+  padding: 25px;
+}
+
+#close-modal {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  color: #706f6f;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#close-modal:hover {
   cursor:pointer;
 }
 

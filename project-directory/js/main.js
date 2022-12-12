@@ -38,13 +38,18 @@ const matchArray = []
 document.addEventListener('click', function(event) {
   if (event.target.dataset.id) {
     getPlantMatches(event.target.dataset.id)
+  } else if (event.target.id = 'close-modal') {
+    closeMatchModal()
   }
 })
 
-//rednder matches currently does not render any matches, just the headline
+function closeMatchModal () {
+  document.querySelector('#match-container').style.display ='none'
+  matchArray.length = 0
+}
+
+
 function getPlantMatches(plantId) {
-
-
   matchArray.push(plantData.filter(function(match){
     return match.id == plantId  
   })[0])
@@ -56,17 +61,16 @@ function getPlantMatches(plantId) {
 
 function getMatchHtml() {
   let matchHtml = `
-  <h2>♥ Plant match found!<h2>
+  <p id="close-modal">x</p>
+  <h2>♥ Plant matches found!<h2>
   <h3>These are the best companion plants for VARIETY to add to your garden:</h3>`
   matchArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
   })
+  //<button class="button" id="restart-btn">Start Over</button>
   return matchHtml
   
 }
-
-
-
 
 
 //Renders plant names
@@ -88,7 +92,6 @@ renderPlants()
 function renderMatches() {
   document.querySelector('#match-container').style.display ='block'
   document.querySelector('#match-container').innerHTML = getMatchHtml()
-  
 }
 
 
