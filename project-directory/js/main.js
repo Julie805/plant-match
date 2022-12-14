@@ -7,9 +7,7 @@
 // -User may find additional plant matches using the "start-over" button, which refreshes the screen back to its first stage.
 
 //TROUBLESHOOTING TO-DO's:
-//1. After one match is made, and startOverButton is pressed, the layout updates, but none of the plant event listeners are active for a second run. But... the "surprise-me" button IS active and can continue functioning. WHY???
-//2. Layout issues with buttons moving position (to the left) after click events.
-//3. Not able to get items in arrays (like tomatoMatch) to change color in functions. Have tried adding a classList from CSS as well as adding variable.style.background = color (AND... is this color change enough to cue the user that the plants have changed? Right now it is difficult to notice.)
+
 //4. How would this work with images instead of text only?
 //5. How would this work on a larger scale?
 //6. fix floating/jumpy footer. have not done much with media queries right now. 
@@ -43,12 +41,6 @@ document.addEventListener('click', function(event) {
   }
 })
 
-function closeMatchModal () {
-  document.querySelector('#match-container').style.display ='none'
-  matchArray.length = 0
-}
-
-
 function getPlantMatches(plantId) {
   matchArray.push(plantData.filter(function(match){
     return match.id == plantId  
@@ -58,7 +50,6 @@ function getPlantMatches(plantId) {
   console.log(matchArray[0].matches)
 }
 
-
 function getMatchHtml() {
   let matchHtml = `
   <p id="close-modal">x</p>
@@ -67,13 +58,17 @@ function getMatchHtml() {
   matchArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
   })
-  //<button class="button" id="restart-btn">Start Over</button>
-  return matchHtml
-  
+  matchHtml += `<button class="button" id="restart-btn">Start Over</button>`
+  return matchHtml  
+}
+
+function closeMatchModal () {
+  document.querySelector('#match-container').style.display ='none'
+  matchArray.length = 0
 }
 
 
-//Renders plant names
+//Displays first plant names
 function getPlantHtml() {
   let plantHtml = ''
   plantData.forEach(function(plant) {
