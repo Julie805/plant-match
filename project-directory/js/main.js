@@ -9,7 +9,6 @@
 //TROUBLESHOOTING TO-DO's:
 
 //4. How would this work with images instead of text only?
-//5. How would this work on a larger scale?
 //6. fix floating/jumpy footer. have not done much with media queries right now. 
 //7. Have not built out pages on hamburger menu. Might delete.
 
@@ -22,13 +21,11 @@ import {plantData} from './data.js'
 
 //Main selectors from HTML
 const plant = document.querySelector(".plant");
-const headline = document.querySelector(".headline");
-const subtext = document.querySelector(".subtext");
 const surpriseButton = document.querySelector(".surprise");
 const startOverButton = document.querySelector(".new-match");
+const closeModalBtn = document.querySelector('#close-modal-btn')
 
 //Array used by "surprise" me button to pick parent plant
-//const firstPlants = ["tomatoes", "squash", "lettuce", "corn"];
 
 //New code starts here
 const matchArray = []
@@ -36,10 +33,17 @@ const matchArray = []
 document.addEventListener('click', function(event) {
   if (event.target.dataset.id) {
     getPlantMatches(event.target.dataset.id)
-  } else if (event.target.id = 'close-modal') {
+  } else if (event.target.id === 'close-modal-btn') {
+    console.log(event.target.id)
     closeMatchModal()
   }
 })
+//For some reason this event listener causes the first plants to no longer render and the site to break.
+//closeModalBtn.addEventListener('click', function() {
+ // closeMatchModal()
+//})
+
+//this is where you left off... trying a new way to get the modal to close only through the x being selected. Not working because it caused the plants to not render for some reason.
 
 function getPlantMatches(plantId) {
   matchArray.push(plantData.filter(function(match){
@@ -52,15 +56,19 @@ function getPlantMatches(plantId) {
 
 function getMatchHtml() {
   let matchHtml = `
-  <p id="close-modal">x</p>
+  <div class="close-modal-btn-container">
+    <p class="close-modal-btn" id="close-modal-btn">X</p>
+  </div>
   <h2>♥ Plant matches found!<h2>
-  <h3>These are the best companion plants for VARIETY to add to your garden:</h3>`
+  <h3>These are the best companion plants for VARIETY to add to your garden:</h3>
+  `
   matchArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
   })
-  matchHtml += `<button class="button" id="restart-btn">Start Over</button>`
+  matchHtml += `<button class="button" id="start-over-btn">Start Over</button>`
   return matchHtml  
 }
+
 
 function closeMatchModal () {
   document.querySelector('#match-container').style.display ='none'
@@ -111,6 +119,12 @@ function renderMatch(parentPlant) {
     startOver();
 };
 
+//Updates button at the bottom of the page
+const startOver = function () {
+  surpriseButton.classList.add("hide");
+  startOverButton.classList.remove("hide");
+};
+
 
 
 //"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround? Would get very long with more plants.)
@@ -130,25 +144,6 @@ function renderMatch(parentPlant) {
 //   } 
 // });
 
-//Updates button at the bottom of the page
-const startOver = function () {
-  surpriseButton.classList.add("hide");
-  startOverButton.classList.remove("hide");
-};
-
-//Resets the page to the starting point (currently loses the ability to play again unfortunately)
-// startOverButton.addEventListener("click", function() {
-//   headline.innerText = "What do I plant with this?";
-//   subtext.innerText = "Select a plant to reveal its ideal growing companions:"
-//   container.innerHTML = `
-//     <p class="plant hover-style" id="tomato">Tomato</p>
-//     <p class="plant hover-style" id="squash">Squash</p>
-//     <p class="plant hover-style" id="lettuce">Lettuce</p>
-//     <p class="plant hover-style" id="corn">Corn</p> 
-//   ` 
-//   surpriseButton.classList.remove("hide");
-//   startOverButton.classList.add("hide"); 
-// });
 
 //updates the copyright year in the footer
 const copyrightYear = document.querySelector('#copyright-year');
