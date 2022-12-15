@@ -22,8 +22,6 @@ import {plantData} from './data.js'
 //Main selectors from HTML
 const plant = document.querySelector(".plant");
 const surpriseButton = document.querySelector(".surprise");
-const startOverButton = document.querySelector(".new-match");
-const closeModalBtn = document.querySelector('#close-modal-btn')
 
 //Array used by "surprise" me button to pick parent plant
 
@@ -36,14 +34,11 @@ document.addEventListener('click', function(event) {
   } else if (event.target.id === 'close-modal-btn') {
     console.log(event.target.id)
     closeMatchModal()
+  } else if (event.target.id ==='start-over-btn') {
+    closeMatchModal()
   }
 })
-//For some reason this event listener causes the first plants to no longer render and the site to break.
-//closeModalBtn.addEventListener('click', function() {
- // closeMatchModal()
-//})
 
-//this is where you left off... trying a new way to get the modal to close only through the x being selected. Not working because it caused the plants to not render for some reason.
 
 function getPlantMatches(plantId) {
   matchArray.push(plantData.filter(function(match){
@@ -55,12 +50,13 @@ function getPlantMatches(plantId) {
 }
 
 function getMatchHtml() {
+  const variety = matchArray[0].name.toUpperCase()
   let matchHtml = `
   <div class="close-modal-btn-container">
     <p class="close-modal-btn" id="close-modal-btn">X</p>
   </div>
   <h2>♥ Plant matches found!<h2>
-  <h3>These are the best companion plants for VARIETY to add to your garden:</h3>
+  <h3>These are the best companion plants for ${variety} to add to your garden:</h3>
   `
   matchArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant">${match}<p>`
@@ -97,7 +93,6 @@ function renderMatches() {
   document.querySelector('#match-container').innerHTML = getMatchHtml()
 }
 
-
 //New code ends here
 
 
@@ -119,11 +114,6 @@ function renderMatch(parentPlant) {
     startOver();
 };
 
-//Updates button at the bottom of the page
-const startOver = function () {
-  surpriseButton.classList.add("hide");
-  startOverButton.classList.remove("hide");
-};
 
 
 
