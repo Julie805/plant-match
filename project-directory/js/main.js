@@ -16,6 +16,7 @@
 //1. Instead of buttons, would much prefer photos with labels! Was not able to get this to function in JS in previous versions.
 //2. Ability to "heart" and save plants to a "my garden" seciton
 //3. More plants :)
+//4. Add a 2 sentecne description about planting styles/info
 
 import {plantData} from './data.js'
 
@@ -36,8 +37,20 @@ document.addEventListener('click', function(event) {
     closeMatchModal()
   } else if (event.target.id ==='start-over-btn') {
     closeMatchModal()
+  } else if (event.target.id === 'surprise-btn') {
+    getSurprise()
   }
 })
+
+//getSurprise is set up to evenutally accept more complex id's from an API and/or using UUIDs. For presnet state, plantIdArray is not needed -- could use the lenght of the plantData object array for the length.
+
+function getSurprise() {
+  const plantIdArray = plantData.map(function(plant) {
+    return plant.id
+  })
+  const surpriseId = plantIdArray[Math.floor(Math.random()*plantIdArray.length)]
+  getPlantMatches(surpriseId)
+}
 
 
 function getPlantMatches(plantId) {
@@ -46,7 +59,7 @@ function getPlantMatches(plantId) {
   })[0])
   renderMatches()
   //below returns the right array!!! Need to rename matchArray, as it is the whole object
-  console.log(matchArray[0].matches)
+  //console.log(matchArray[0].matches)
 }
 
 function getMatchHtml() {
@@ -65,12 +78,10 @@ function getMatchHtml() {
   return matchHtml  
 }
 
-
 function closeMatchModal () {
   document.querySelector('#match-container').style.display ='none'
   matchArray.length = 0
 }
-
 
 //Displays first plant names
 function getPlantHtml() {
@@ -92,48 +103,6 @@ function renderMatches() {
   document.querySelector('#match-container').style.display ='block'
   document.querySelector('#match-container').innerHTML = getMatchHtml()
 }
-
-//New code ends here
-
-
-//Changes the main text to reflect user's plant choices  
-function choosePlant(variety) {
-  headline.innerHTML = `Matches for <span class="highlight-word">${variety}</span>`
-  subtext.innerText = `These are the best companion plants for ${variety} to add to your garden:`;
-};
-
-//Renders the plant matches 
-function renderMatch(parentPlant) {
-    container.innerHTML= "";
-    let plantDOM = "";
-    for (let i = 0; i < parentPlant.length; i++) {
-      plantDOM += `<p class="plant">${parentPlant[i]}<p>`
-    }
-    container.innerHTML= plantDOM;
-    plant.classList.remove("hover-style");
-    startOver();
-};
-
-
-
-
-//"Surprise me" button that picks a random plant and its corresponding matches. (Is there a way to simplify the conditional statement with another workaround? Would get very long with more plants.)
-// surpriseButton.addEventListener("click", function () {
-//   const randomPlant = firstPlants[Math.floor(Math.random()*firstPlants.length)];
-//   headline.innerHTML = `Matches for <span class="highlight-word">${randomPlant}</span>`;
-//   subtext.innerText = `These are the best companion plants for ${randomPlant} to add to your garden:`;
-//   plant.style.background = "#C8B88A"; //not working!
-//   if (randomPlant === "tomato") {
-//     renderMatch(tomatoMatch)
-//   } else if (randomPlant === "squash") {
-//     renderMatch(squashMatch)
-//   } else if (randomPlant === "lettuce") {
-//     renderMatch(lettuceMatch)
-//   } else {
-//     renderMatch(cornMatch)
-//   } 
-// });
-
 
 //updates the copyright year in the footer
 const copyrightYear = document.querySelector('#copyright-year');
