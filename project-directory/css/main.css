@@ -218,8 +218,11 @@ h3 {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  gap: 20px;
   margin: auto;
   padding: 50px 50px;
+  max-width: 1000px;
+  
 }
 
 .plant {
@@ -245,7 +248,8 @@ h3 {
 #match-container {
   display: none;
   width: 70%;
-  height: 90%;
+  max-width: 600px;
+  height: 95%;
   background-color: white ; 
   filter: drop-shadow(5px 5px 255px rgba(0, 0, 0, 0.5));
   position: fixed;
@@ -255,7 +259,7 @@ h3 {
   right: 0;
   margin: auto;
   border-radius: 6px;
-  padding: 25px;
+  padding: 35px;
 }
 
 .close-modal-btn-container {
@@ -280,6 +284,7 @@ footer {
 /* selects the button that starts the matchmaking from the beginning */
 .start-over {
   color: #86B049;
+  
 }
 
 /* hides elements */
@@ -375,13 +380,8 @@ footer {
    ========================================================================== */
 
 @media only screen and (min-width: 780px) {
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+    /*Anything needed here any more? detele?*/
+  
 }
 
 @media print,

@@ -20,6 +20,16 @@ export const plantData = [
     matches: ["squash", "beans", "peas", "cucumbers"],
     id: 3
   },
+  {
+    name: "strawberries",
+    matches: ["spinach", "onions", "beans", "peas"],
+    id: 4
+  },
+  {
+    name: "kale",
+    matches: ["beets", "cucumbers", "radishes", "onions"],
+    id: 5
+  },
 ]
 
 

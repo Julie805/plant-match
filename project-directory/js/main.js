@@ -20,12 +20,6 @@
 
 import {plantData} from './data.js'
 
-//Main selectors from HTML
-const plant = document.querySelector(".plant");
-const surpriseButton = document.querySelector(".surprise");
-
-//Array used by "surprise" me button to pick parent plant
-
 //New code starts here
 const matchArray = []
 
