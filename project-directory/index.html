@@ -20,7 +20,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
    <!-- Material Icon CDN -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
  <!-- CSS styles -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -32,27 +32,34 @@
 
 <body>
   <header>
-    <nav class="topnav">
-      <div class="top-frame">
+    <nav>
         <h5>Your Perfect Garden Awaits</h5>
-      </div>   
-      <!-- Navigation links (hidden by default). Links currently not built out. -->
+        <ul class="menu" id="menu">
+          <li><a class="menu-item" href="#about">About</a></li>
+          <li><a class="menu-item" href="#contact">Contact</a></li> 
+        </ul>
+        <button class="hamburger">
+          <i class="menu-icon material-icons">menu</i>
+          <i class="close-icon material-icons">close</i>
+        </button>
+      
+      
+      <!-- Navigation links (hidden by default). Links currently not built out. 
       <div id="myLinks">
-        <a href="#shop">Shop</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>      
       </div>
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+       "Hamburger menu" / "Bar icon" to toggle the navigation links 
       <a href="javascript:void(0);" class="icon" onclick="hamburger()">
         <i class="fa fa-bars"></i>
-      </a>
-    </nav>    
-    <div class="logo-center">
-      <a href="#"><img class="logo" src="img/logo500.png" alt="plant match logo"></a>
-    </div>   
+      </a> --> 
+    </nav>     
   </header>
 
   <section class="hero">
+    <div class="logo-center">
+      <a href="#"><img class="logo" src="img/logo500.png" alt="plant match logo"></a>
+    </div> 
     <h1 class="headline">What do I plant with this?</h1>  
     <h2 class="subtext">Select a plant to discover its ideal growing companions:</h2>
   </section>

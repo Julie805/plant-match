@@ -79,8 +79,6 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-   /* ===============global styles ===============*/
-
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -91,8 +89,9 @@ body {
   margin: 0;
 }
 
-.top-frame, footer {
-  background: #F1DDDF;  
+header, footer {
+  background: #F1DDDF; 
+  padding: 7px; 
 }
 
 /* needed .63 vertical padding intead of .5 to match the surprise and new-match buttont to the divs above. Why?? */
@@ -106,7 +105,7 @@ body {
   font-size: 1.25rem;
   letter-spacing: .05rem;
   color: #86B049;
-  margin: 25px auto 50px; 
+  margin: 15px auto 50px; 
   padding:.62rem 2.5rem;
   display: block;
 }
@@ -121,9 +120,7 @@ h5 {
   color: #706f6f;
   text-align: center;
   margin: 0;
-  padding: 16px 0;
-  
-  
+  padding: 16px 0;  
 }
 
 h1 {
@@ -151,43 +148,71 @@ h3 {
   text-align: center;
   margin-bottom: 20px; 
 }
+/*new Navigation Styles */
 
-
-
-/* =============== mobile styles =============== */
-
-/* Style the navigation menu */
-.topnav {
-  background-color: #86B049;
-  position: relative;  
+.hamburger {
+  position: absolute;
+  z-index: 100;
+  top: .5rem;
+  left: 1.5rem;
+  padding: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background: #C8B88A;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
+.close-icon {
   display: none;
 }
 
+nav {
+  /*background-color: #86B049;*/
+  position: relative;  
+}
+display: none;
+/* Hide the links inside the navigation menu (except for logo/home) */
+.menu {
+  position: relative;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  padding-top: 4rem;
+}
+
+.menu li {
+  list-style: none;
+  background: #C8B88A;
+  
+}
+
 /* Style navigation menu links */
-.topnav a {
+nav a {
   color: white;
-  padding: 14px 16px;
+  padding: .5rem;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1rem;
   display: block;
 }
-
-/* Style the hamburger menu */
+.show-menu { 
+  transform: translateY(0);  
+}
+/* Style the hamburger menu 
 .topnav a.icon {
   background: #C8B88A;
   display: block;
   position: absolute;
   left: 0;
   top: 0;
-}
+} */
 
 /* Add a background color on mouse-over */
-.topnav a:hover {
+nav a:hover {
   background-color: #86B049;
   color: white;
 }
@@ -209,7 +234,7 @@ h3 {
 
 .logo {
   width: 300px;
-  padding: 20px 0 40px
+  padding: 40px 0;
 }
 
 
@@ -235,7 +260,7 @@ h3 {
   font-size: 1.25rem;
   letter-spacing: .05rem;
   color: white;
-  margin: 0 auto 20px; 
+  margin: 0 auto 10px; 
   padding: .5rem 2.5rem;
 }
 

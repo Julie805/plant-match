@@ -7,15 +7,14 @@
 // -User may find additional plant matches using the "start-over" button, which refreshes the screen back to its first stage.
 
 //TROUBLESHOOTING TO-DO's:
-
+//. Fix hamburger menu. 
+//. Build out other pages of menu
 //4. How would this work with images instead of text only?
-//6. fix floating/jumpy footer. have not done much with media queries right now. 
-//7. Have not built out pages on hamburger menu. Might delete.
 
 //FUTURE WISH LIST:
 //1. Instead of buttons, would much prefer photos with labels! Was not able to get this to function in JS in previous versions.
 //2. Ability to "heart" and save plants to a "my garden" seciton
-//3. More plants :)
+//3. More plants 
 //4. Add a 2 sentecne description about planting styles/info
 
 import {plantData} from './data.js'
