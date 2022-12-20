@@ -19,9 +19,25 @@
 
 import {plantData} from './data.js'
 
-//New code starts here
+const hamburger = document.querySelector('.hamburger')
+const navMenu = document.querySelector('.nav-menu')
+
+hamburger.addEventListener("click", function() {
+  hamburger.classList.toggle("active")
+  navMenu.classList.toggle("active")
+})
+
+//Hides the navigation menu links when user clicks on one of the links 
+document.querySelectorAll(".nav-link").forEach(function(link) {
+  link.addEventListener("click", function() {
+    hamburger.classList.remove("active")
+    navMenu.classList.remove("active")
+  })
+})
+
 const matchArray = []
 
+//Handles all button clicks
 document.addEventListener('click', function(event) {
   if (event.target.dataset.id) {
     getPlantMatches(event.target.dataset.id)
@@ -32,8 +48,9 @@ document.addEventListener('click', function(event) {
     closeMatchModal()
   } else if (event.target.id === 'surprise-btn') {
     getSurprise()
-  }
+  } 
 })
+
 
 //getSurprise is set up to evenutally accept more complex id's from an API and/or using UUIDs. For presnet state, plantIdArray is not needed -- could use the lenght of the plantData object array for the length.
 
@@ -101,15 +118,8 @@ function renderMatches() {
 const copyrightYear = document.querySelector('#copyright-year');
 copyrightYear.innerText = new Date().getFullYear();
 
-//Toggle between showing and hiding the navigation menu links when user clicks on the hamburger menu icon
-function hamburger() {
-    const links = document.getElementById("myLinks");
-    if (links.style.display === "block") {
-      links.style.display = "none";
-    } else {
-      links.style.display = "block";
-    }
-  };
+
+
 
 
 

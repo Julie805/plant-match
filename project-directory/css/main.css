@@ -5,19 +5,9 @@
 
 html {
   color: #222;
-  font-size: 1em;
+  font-size: 16px;
   line-height: 1.4;
 }
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
 
 ::-moz-selection {
   background: #b3d4fc;
@@ -57,30 +47,14 @@ video {
   vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -137,10 +111,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.highlight-word {
-  color: #86B049;
-  text-transform: uppercase;
-}
 
 h3 {
   font-family: 'Baskervville', serif;  
@@ -148,80 +118,123 @@ h3 {
   text-align: center;
   margin-bottom: 20px; 
 }
+
 /*new Navigation Styles */
 
-.hamburger {
-  position: absolute;
-  z-index: 100;
-  top: .5rem;
-  left: 1.5rem;
-  padding: 4px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  background: #C8B88A;
-}
-
-.close-icon {
-  display: none;
-}
-
-nav {
-  /*background-color: #86B049;*/
-  position: relative;  
-}
-display: none;
-/* Hide the links inside the navigation menu (except for logo/home) */
 .menu {
   position: relative;
   transform: translateY(-100%);
   transition: transform 0.2s;
   top: 0;
-  left: 0;
+  left: 12px;
   right: 0;
   bottom: 0;
   z-index: 99;
-  padding-top: 4rem;
+  padding-top: 4rem; 
+  /*display: none; */
 }
 
 .menu li {
   list-style: none;
-  background: #C8B88A;
-  
+  background: #C8B88A; 
 }
+
+
+.menu-icon {
+ display: block;
+}
+
+
+.close-icon {
+  display: none;
+}
+
 
 /* Style navigation menu links */
-nav a {
-  color: white;
-  padding: .5rem;
+/* ALL THE NEW STUFF */
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #706f6f;
   text-decoration: none;
+}
+
+.navbar {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
   text-transform: uppercase;
-  font-size: 1rem;
-  display: block;
-}
-.show-menu { 
-  transform: translateY(0);  
-}
-/* Style the hamburger menu 
-.topnav a.icon {
   background: #C8B88A;
+}
+
+.nav-branding {
+  font-size: 2rem;
+  font-family: 'Baskervville', serif; 
+  font-style: italic;
+}
+
+/* transition effect*/
+.nav-link {
+  transition: 0.7s ease;
+}
+
+.nav-link:hover {
+  color: #86B049;
+}
+
+.hamburger {
   display: block;
-  position: absolute;
+  cursor: pointer;
+  color: #706f6f;
+  transition: 0.7s ease;
+}
+
+.hamburger:hover {
+  color: #86B049;
+}
+
+.menu-icon {
+  font-size: 2.5rem;
+}
+
+/* added from media query*/
+
+.nav-menu {   
+  position: fixed;
+  /* left value hides the nav-menu items until activated */
+  left: -100%;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+  background-color:#F1DDDF;
+  width: 100%;
+}
+
+.nav-item {
+  margin: 16px 0;
+ 
+}
+
+/* reveals the nav-menu items with JavaScript */
+.nav-menu.active {
   left: 0;
-  top: 0;
-} */
-
-/* Add a background color on mouse-over */
-nav a:hover {
-  background-color: #86B049;
-  color: white;
 }
 
-/* Style the active link */
-.active {
-  background-color: #86B049;
-  color: white;
-}
 
 .hero {
   padding: 0 30px;
@@ -264,7 +277,7 @@ nav a:hover {
   padding: .5rem 2.5rem;
 }
 
-.hover-style:hover {
+ .hover-style:hover {
   background-color: #476930; 
   cursor:pointer;
 }
@@ -306,108 +319,39 @@ footer {
   margin-bottom: 0;
 }
 
-/* selects the button that starts the matchmaking from the beginning */
-.start-over {
-  color: #86B049;
-  
-}
-
-/* hides elements */
-.hide {
-  display: none;
-}
-   
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.sr-only.focusable:active,
-.sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
 
 /* ==========================================================================
    Media Queries 
    ========================================================================== */
 
 @media only screen and (min-width: 780px) {
-    /*Anything needed here any more? detele?*/
-  
+.hamburger {
+    display: none; 
+  }
+
+.navbar {
+  min-height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+} 
+
+.nav-menu {
+  gap: 50px;
+  position: relative;
+  left: 0;
+  top: 0;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
 }
+
+.nav-item {
+  margin: 16px 0;  
+}
+
+/* third tan color??? #C8B88A */
 
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),

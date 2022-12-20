@@ -25,36 +25,39 @@
  <!-- CSS styles -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  
-  <script src="js/main.js" type="module"></script>
 
+  <!-- Javascript -->
+  <script src="js/main.js" type="module"></script>
 </head>
 
 <body>
   <header>
-    <nav>
+    <nav class="navbar">
+      <a href="#" class="nav-branding">pm</a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li> 
+      </ul>
+      <div class="hamburger">
+        <i class="menu-icon material-icons">menu</i>
+        <i class="close-icon material-icons">close</i>
+      </div>
+    </nav>
+  </header>
+  <!-- <header>
+    <nav class="navbar">
         <h5>Your Perfect Garden Awaits</h5>
+        <button class="hamburger-btn" id="hamburger-btn">
+          <i class="menu-icon material-icons">menu</i>
+          <i class="close-icon material-icons">close</i>
+        </button> 
         <ul class="menu" id="menu">
           <li><a class="menu-item" href="#about">About</a></li>
           <li><a class="menu-item" href="#contact">Contact</a></li> 
         </ul>
-        <button class="hamburger">
-          <i class="menu-icon material-icons">menu</i>
-          <i class="close-icon material-icons">close</i>
-        </button>
-      
-      
-      <!-- Navigation links (hidden by default). Links currently not built out. 
-      <div id="myLinks">
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>      
-      </div>
-       "Hamburger menu" / "Bar icon" to toggle the navigation links 
-      <a href="javascript:void(0);" class="icon" onclick="hamburger()">
-        <i class="fa fa-bars"></i>
-      </a> --> 
     </nav>     
-  </header>
+  </header> -->
 
   <section class="hero">
     <div class="logo-center">
@@ -66,7 +69,7 @@
 
   <main>
     <div id="plant-container">
-      <!-- plants rendered here -->  
+      <!-- initial plant choices rendered here -->  
     </div>
     <div>
       <h2 class="subtext">Not sure what to plant?</h2>
