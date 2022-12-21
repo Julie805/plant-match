@@ -7,7 +7,6 @@
 // -User may find additional plant matches using the "start-over" button, which refreshes the screen back to its first stage.
 
 //TROUBLESHOOTING TO-DO's:
-//. Fix hamburger menu. 
 //. Build out other pages of menu
 //4. How would this work with images instead of text only?
 
@@ -22,9 +21,17 @@ import {plantData} from './data.js'
 const hamburger = document.querySelector('.hamburger')
 const navMenu = document.querySelector('.nav-menu')
 
-hamburger.addEventListener("click", function() {
+
+hamburger.addEventListener("click", function(event) {
   hamburger.classList.toggle("active")
-  navMenu.classList.toggle("active")
+  navMenu.classList.toggle("active") 
+  if (event.target.id === 'menu-icon') {
+    document.querySelector('#menu-icon').style.display ='none'
+    document.querySelector('#close-icon').style.display ='block'
+  } else if (event.target.id === 'close-icon') {
+    document.querySelector('#menu-icon').style.display ='none'
+    document.querySelector('#close-icon').style.display ='block'
+  }
 })
 
 //Hides the navigation menu links when user clicks on one of the links 
@@ -32,6 +39,8 @@ document.querySelectorAll(".nav-link").forEach(function(link) {
   link.addEventListener("click", function() {
     hamburger.classList.remove("active")
     navMenu.classList.remove("active")
+    document.querySelector('.close-icon').style.display ='none'
+    document.querySelector('.menu-icon').style.display ='block'
   })
 })
 
