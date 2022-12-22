@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/main.css">
 
- 
+ <!-- Javascript -->
+ <script src="../js/main.js" type="module"></script>
 </head>
 
 <body>
@@ -53,9 +54,21 @@
     <div class="logo-center">
       <a href="#"><img class="logo" src="../img/logo500.png" alt="plant match logo"></a>
     </div> 
-    <h1 class="headline">Contact</h1>  
-    <h2 class="subtext">Let's get in touch.</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h1 class="headline">Contact Us</h1>  
+    <div class="contact-info">
+      <form action="https://formsubmit.co/250b03653c8831fad3344e0f71ac5ed2" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your name" aria-label="Full name" required>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
+        <label>Message</label>
+        <textarea rows="7" name="message" aria-label="Message"></textarea>
+        <input type="hidden" name="_next" value="https://julie805.github.io/portfolio/thanks.html">
+        <input type="hidden" name="_subject" value="Contact request on Plant Match">
+        <input type="hidden" name="_captcha" value="false">
+        <button class="contact-btn">Submit</button>
+      </form>
+    </div>
   </main>
 
   
