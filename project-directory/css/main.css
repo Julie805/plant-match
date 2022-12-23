@@ -82,6 +82,8 @@ header, footer {
   margin: 15px auto 50px; 
   padding:.62rem 2.5rem;
   display: block;
+  transition: 0.7s ease;
+  
 }
 
 .button:hover, .button:active {
@@ -253,6 +255,7 @@ h5 {
   color: white;
   margin: 0 auto 10px; 
   padding: .5rem 2.5rem;
+  transition: 0.7s ease;
 }
 
  .hover-style:hover {
@@ -358,6 +361,7 @@ textarea {
   border-radius: 5px;
   color: white;
   background-color:#C5C6D0;
+  transition: 0.7s ease;
 }
 
 .contact-btn:hover, .contact-btn:active {
