@@ -1,7 +1,7 @@
 export const plantData = [
   { 
-    name: "tomato",
-    matches: ["carrot", "basil", "onion", "celery"],
+    name: "tomatoes",
+    matches: ["carrots", "basil", "onions", "celery"],
     id: 0
   },
 
