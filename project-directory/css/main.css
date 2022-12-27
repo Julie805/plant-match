@@ -145,6 +145,7 @@ a {
   background-color:#F1DDDF;
   width: 100%;
   text-transform: uppercase;
+  letter-spacing: .05rem;
   
   
 }
@@ -261,10 +262,14 @@ h5 {
   cursor:pointer;
 }
 
+footer {
+  margin-bottom: 0;
+}
+
 /* match modal hidden until called */
 #match-container {
   display: none;
-  width: 70%;
+  width: 75%;
   max-width: 600px;
   height: 95%;
   background-color: white ; 
@@ -276,7 +281,7 @@ h5 {
   right: 0;
   margin: auto;
   border-radius: 6px;
-  padding: 35px;
+  padding: 25px;
 }
 
 .close-modal-btn-container {
@@ -288,14 +293,23 @@ h5 {
   font-weight: 700;
 }
 
-.close-modal-btn {
+#close-modal-btn {
   cursor:pointer;
   margin: 0;
+  font-size: 2rem;
+  padding-bottom: 30px;
 }
 
-footer {
-  margin-bottom: 0;
+.match-headline {
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+
 }
+
+.plant-match {
+  margin-bottom: 25px;
+}
+
 
 /* ========= About Page Styles ============ */
 
@@ -426,6 +440,24 @@ textarea {
   width: 50%;
   height: 50%;
 }
+
+/* match modal hidden until called */
+#match-container {
+  width: 65%;
+  padding: 35px;
+}
+
+#close-modal-btn {
+  font-size: 2rem;
+}
+
+.match-headline {
+  margin: 25px auto 35px;
+  font-size: 1.75rem;
+}
+
+
+
 /* ========= Contact Page Styles @ 780px min-width ============ */
 
 .contact-info {

@@ -7,7 +7,6 @@
 // -User may find additional plant matches using the "start-over" button, which refreshes the screen back to its first stage.
 
 //TROUBLESHOOTING TO-DO's:
-//. Build out other pages of menu
 //4. How would this work with images instead of text only?
 
 //FUTURE WISH LIST:
@@ -21,7 +20,7 @@ import {plantData} from './data.js'
 const hamburger = document.querySelector('.hamburger')
 const navMenu = document.querySelector('.nav-menu')
 
-
+//this only partially works - x does not go away. why?
 hamburger.addEventListener("click", function(event) {
   hamburger.classList.toggle("active")
   navMenu.classList.toggle("active") 
@@ -85,13 +84,13 @@ function getMatchHtml() {
   const variety = matchArray[0].name.toUpperCase()
   let matchHtml = `
   <div class="close-modal-btn-container">
-    <p class="close-modal-btn" id="close-modal-btn">X</p>
+    <i class="material-icons" id="close-modal-btn">close</i>
   </div>
   <h2>♥ Plant matches found!<h2>
-  <h3>These are the best companion plants for ${variety} to add to your garden:</h3>
+  <h3 class="match-headline">These are the best companion plants for ${variety} to add to your garden:</h3>
   `
   matchArray[0].matches.forEach(function(match) {
-    matchHtml += `<p class="plant">${match}<p>`
+    matchHtml += `<p class="plant plant-match">${match}<p>`
   })
   matchHtml += `<button class="button" id="start-over-btn">Start Over</button>`
   return matchHtml  
