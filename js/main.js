@@ -25,11 +25,13 @@ hamburger.addEventListener("click", function(event) {
   hamburger.classList.toggle("active")
   navMenu.classList.toggle("active") 
   if (event.target.id === 'menu-icon') {
-    document.querySelector('#menu-icon').style.display ='none'
-    document.querySelector('#close-icon').style.display ='block'
-  } else if (event.target.id === 'close-icon') {
-    document.querySelector('#menu-icon').style.display ='none'
-    document.querySelector('#close-icon').style.display ='block'
+    document.querySelector('#menu-icon').classList.toggle("test")
+
+  //   document.querySelector('#menu-icon').style.display ='none'
+  //   document.querySelector('#close-icon').style.display ='block'
+  // } else if (event.target.id === 'close-icon') {
+  //   document.querySelector('#menu-icon').style.display ='none'
+  //   document.querySelector('#close-icon').style.display ='block'
   }
 })
 

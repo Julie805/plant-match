@@ -199,6 +199,11 @@ h5 {
   color: #86B049;
 }
 
+
+.menu-icon.test {
+  color: red;
+}
+
 #menu-icon {
   display: block;
   font-size: 2.5rem;
