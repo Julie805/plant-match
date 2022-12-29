@@ -20,22 +20,15 @@ import {plantData} from './data.js'
 const hamburger = document.querySelector('.hamburger')
 const navMenu = document.querySelector('.nav-menu')
 
-//this only partially works - x does not go away. why?
-hamburger.addEventListener("click", function(event) {
+const matchObjArray = []
+
+//Transforms the hamburger into an x and reveals the nav menu
+hamburger.addEventListener("click", function() {
   hamburger.classList.toggle("active")
   navMenu.classList.toggle("active") 
-  if (event.target.id === 'menu-icon') {
-    document.querySelector('#menu-icon').classList.toggle("test")
-
-  //   document.querySelector('#menu-icon').style.display ='none'
-  //   document.querySelector('#close-icon').style.display ='block'
-  // } else if (event.target.id === 'close-icon') {
-  //   document.querySelector('#menu-icon').style.display ='none'
-  //   document.querySelector('#close-icon').style.display ='block'
-  }
 })
 
-//Hides the navigation menu links when user clicks on one of the links 
+//Hides the nav menu links when user clicks on one of the links 
 document.querySelectorAll(".nav-link").forEach(function(link) {
   link.addEventListener("click", function() {
     hamburger.classList.remove("active")
@@ -44,8 +37,6 @@ document.querySelectorAll(".nav-link").forEach(function(link) {
     document.querySelector('.menu-icon').style.display ='block'
   })
 })
-
-const matchArray = []
 
 //Handles all button clicks
 document.addEventListener('click', function(event) {
@@ -61,9 +52,7 @@ document.addEventListener('click', function(event) {
   } 
 })
 
-
-//getSurprise is set up to evenutally accept more complex id's from an API and/or using UUIDs. For presnet state, plantIdArray is not needed -- could use the lenght of the plantData object array for the length.
-
+//getSurprise is set up to evenutally accept more complex id's from an API and/or using UUIDs. For presnet state, plantIdArray is not needed -- could use the length of the plantData object array for the length.
 function getSurprise() {
   const plantIdArray = plantData.map(function(plant) {
     return plant.id
@@ -74,16 +63,14 @@ function getSurprise() {
 
 
 function getPlantMatches(plantId) {
-  matchArray.push(plantData.filter(function(match){
+  matchObjArray.push(plantData.filter(function(match){
     return match.id == plantId  
   })[0])
   renderMatches()
-  //below returns the right array!!! Need to rename matchArray, as it is the whole object
-  //console.log(matchArray[0].matches)
 }
 
 function getMatchHtml() {
-  const variety = matchArray[0].name.toUpperCase()
+  const variety = matchObjArray[0].name.toUpperCase()
   let matchHtml = `
   <div class="close-modal-btn-container">
     <i class="material-icons" id="close-modal-btn">close</i>
@@ -91,7 +78,7 @@ function getMatchHtml() {
   <h2>♥ Plant matches found!<h2>
   <h3 class="match-headline">These are the best companion plants for ${variety} to add to your garden:</h3>
   `
-  matchArray[0].matches.forEach(function(match) {
+  matchObjArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant plant-match">${match}<p>`
   })
   matchHtml += `<button class="button start-over-btn" id="start-over-btn">Start Over</button>`
@@ -100,7 +87,7 @@ function getMatchHtml() {
 
 function closeMatchModal () {
   document.querySelector('#match-container').style.display ='none'
-  matchArray.length = 0
+  matchObjArray.length = 0
 }
 
 //Displays first plant names

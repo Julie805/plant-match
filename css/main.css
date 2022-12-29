@@ -68,7 +68,7 @@ header, footer {
   padding: 7px; 
 }
 
-/* needed .63 vertical padding intead of .5 to match the surprise and new-match buttont to the divs above. Why?? */
+/* needed .63 vertical padding intead of .5 to match the surprise and new-match button to the divs above. Why?? */
 .button {
   background: white;
   width: 250px;
@@ -104,12 +104,12 @@ h2 {
   margin-bottom: 10px;
 }
 
-
 h3 {
   font-family: 'Baskervville', serif;  
   font-size: 1.75rem;
   text-align: center;
   margin-bottom: 20px; 
+  letter-spacing: -.05rem;
 }
 
 
@@ -145,9 +145,8 @@ a {
   background-color:#F1DDDF;
   width: 100%;
   text-transform: uppercase;
-  letter-spacing: .05rem;
-  
-  
+  letter-spacing: .05rem; 
+  transition: 0.3s;
 }
 
 /* reveals the nav-menu items with JavaScript */
@@ -191,27 +190,35 @@ h5 {
 .hamburger {
   display: block;
   cursor: pointer;
-  color: #706f6f;
-  transition: 0.7s ease;
+}
+
+/* removes the middle line of the hamburger with JavaScript */
+.hamburger.active .bar:nth-child(2){
+  opacity: 0;
+}
+
+/* rotates first line of hamburger with JavaScript */
+.hamburger.active .bar:nth-child(1){
+  transform: translateY(8px) rotate(45deg);
+}
+
+/* rotates third line of hamburger the opposite direction with JavaScript */
+.hamburger.active .bar:nth-child(3){
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #706f6f;
 }
 
 .hamburger:hover {
   color: #86B049;
-}
-
-
-.menu-icon.test {
-  color: red;
-}
-
-#menu-icon {
-  display: block;
-  font-size: 2.5rem;
-}
- 
-#close-icon {
-   display: none;
-   font-size: 2.5rem;
 }
 
 .nav-item {
@@ -287,8 +294,7 @@ footer {
   margin: auto;
   border-radius: 6px;
   padding: 25px;
-  overflow-y: scroll;
-  
+  overflow-y: scroll; 
 }
 
 .close-modal-btn-container {
