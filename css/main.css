@@ -287,6 +287,8 @@ footer {
   margin: auto;
   border-radius: 6px;
   padding: 25px;
+  overflow-y: scroll;
+  
 }
 
 .close-modal-btn-container {
@@ -313,6 +315,11 @@ footer {
 
 .plant-match {
   margin-bottom: 25px;
+  width: 225px;
+}
+
+.start-over-btn {
+  width: 225px;
 }
 
 
@@ -429,6 +436,14 @@ textarea {
 .logo {
   width: 325px;
   padding: 70px 0 20px;
+}
+
+.plant-match {
+  width: 250px;
+}
+
+.start-over-btn {
+  width: 250px;
 }
 
 /* ========= About Page Styles @ 780px min-width ============ */

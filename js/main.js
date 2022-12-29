@@ -94,7 +94,7 @@ function getMatchHtml() {
   matchArray[0].matches.forEach(function(match) {
     matchHtml += `<p class="plant plant-match">${match}<p>`
   })
-  matchHtml += `<button class="button" id="start-over-btn">Start Over</button>`
+  matchHtml += `<button class="button start-over-btn" id="start-over-btn">Start Over</button>`
   return matchHtml  
 }
 
